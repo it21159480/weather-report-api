@@ -8,19 +8,23 @@ const scheduleWeatherUpdates = require('./tasks/mailScheduler');
 
 
 
-connectDB(); // Connect to MongoDB
+// connectDB(); // Connect to MongoDB
 
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 
 
 app.get('/', (req, res) => {
+  connectDB(); 
+  app.use('/users', userRoutes);  // Mount the user routes at '/users'
+
+  scheduleWeatherUpdates();
   res.send('Hey this is my API running 🥳')
 })
 // Use routes
-app.use('/users', userRoutes);  // Mount the user routes at '/users'
+// app.use('/users', userRoutes);  // Mount the user routes at '/users'
 
-scheduleWeatherUpdates(); // Initialize the scheduled tasks
+// scheduleWeatherUpdates(); // Initialize the scheduled tasks
 
 
 
