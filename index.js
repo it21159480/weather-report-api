@@ -15,10 +15,10 @@ app.use(express.json()); // Middleware to parse JSON bodies
 
 
 app.get('/', (req, res) => {
-  connectDB(); 
-  app.use('/users', userRoutes);  // Mount the user routes at '/users'
+  // connectDB(); 
+  // app.use('/users', userRoutes);  // Mount the user routes at '/users'
 
-  scheduleWeatherUpdates();
+  // scheduleWeatherUpdates();
   res.send('Hey this is my API running 🥳')
 })
 // Use routes
