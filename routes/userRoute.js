@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 
 // Define routes
 router.post('/', userController.createUser);
-router.put('/:email', userController.updateUserLocation);
-router.get('/weather/:email', userController.getWeatherByDate);
-
+router.put('/:id', userController.updateUserLocation);
+router.get('/weather/:id', userController.getWeatherByDate);
+router.get('/getAll', userController.getAllUsers);
 module.exports = router;

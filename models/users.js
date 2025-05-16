@@ -11,6 +11,8 @@ const weatherDataSchema = new mongoose.Schema({
 
 
 const userSchema = new mongoose.Schema({
+    id :  { type: String, required: true },
+    name :  { type: String, required: true },
     email: { type: String, required: true, unique: true },
     location: { type: String, required: true },
     weatherData: [weatherDataSchema]
